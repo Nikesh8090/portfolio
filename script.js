@@ -87,3 +87,23 @@ let form=document.querySelector('#form');
     })   
     e.preventDefault();
 });
+let url = 'https://script.google.com/macros/s/AKfycbzwAwWkyMnjTUZxPsdQmdZCLSlKG_RVnCKELW-yirC7jjL99L_33fCXNYC8x8d-Ox21wg/exec';
+let form=document.querySelector('#form');
+    form.addEventListener("submit",(e)=>{
+        e.target.btn.innerHTML="submitting";
+        let d=new FormData(form);
+        fetch(url,{
+            method:"POST",
+            body:d
+        }).then((res)=>res.text())
+        .then((finalRes)=>{
+            e.target.btn.innerHTML="submitting"; 
+            document.getElementById("res").innerHTML=finalRes;
+            form.reset();
+            setTimeout(()=>{
+                document.getElementById("res").innerHTML="";
+            },5000)
+    })   
+    e.preventDefault();
+});
+
