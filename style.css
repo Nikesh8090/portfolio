@@ -408,6 +408,7 @@ h1 {
 /* projecy */
 .pro h1{
    text-align: center;
+  margin-top: 10px;
 }
 .container {
   display: flex;
